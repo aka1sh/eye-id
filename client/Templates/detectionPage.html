@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eye Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDP.css') }}">
+</head>
+<body>
+    <div class="box">
+        <h1>EYE DISEASE DETECTION</h1>
+        <p> Upload Retinal Scan Images Below</p>
+        <form action="/result" method="post" enctype="multipart/form-data">
+            <input type="file" name="image"> <br>
+            <input type="submit" value="Run Test">
+        </form>
+        {% if result %}
+            <br>
+            <img src="/static/css/img/result.jpg" alt="Detected image">
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
